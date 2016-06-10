@@ -32,7 +32,7 @@ class SecurityJWTServiceProvider implements ServiceProviderInterface
         };
 
         $app['security.authentication.success_handler.secured'] = function () use ($app) {
-            return new Authentication\AuthenticationSuccessHandler($app, $app['security.http_utils']);
+            return new Authentication\AuthenticationSuccessHandler($app['security.http_utils'], []);
         };
 
         $app['security.authentication.failure_handler.secured'] = function () use ($app) {
