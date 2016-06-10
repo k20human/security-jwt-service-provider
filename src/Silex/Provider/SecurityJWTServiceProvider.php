@@ -31,14 +31,6 @@ class SecurityJWTServiceProvider implements ServiceProviderInterface
             return new JWTEncoder($app['security.jwt']['secret_key'], $app['security.jwt']['life_time'], $app['security.jwt']['algorithm']);
         };
 
-        $app['security.authentication.success_handler.secured'] = function () use ($app) {
-            return new Authentication\AuthenticationSuccessHandler($app['security.http_utils'], []);
-        };
-
-        $app['security.authentication.failure_handler.secured'] = function () use ($app) {
-            return new Authentication\AuthenticationFailureHandler($app, $app['security.http_utils']);
-        };
-
         $app['security.authentication.logout_handler.secured'] = function () use ($app) {
             return new LogoutSuccessHandler($app['security.http_utils'], []);
         };
